@@ -1,6 +1,7 @@
 import React from 'react'
 import { assets } from '../assets/assets'
 import moment from 'moment'
+import Markdown from 'react-markdown'
 
 const Message = ({message}) => {
   return (
@@ -24,7 +25,9 @@ const Message = ({message}) => {
               ) 
               : 
               (
-                <div className='text-sm dark:text-primary reset-tw'>{message.content}</div>
+                <div className='text-sm dark:text-primary reset-tw'>
+                  <Markdown>{message.content}</Markdown>
+                </div>
               )
             }
             <span className='text-xs text-gray-400 dark:text-[#B1A6C0]'>{moment(message.timestamp).fromNow()}</span>
