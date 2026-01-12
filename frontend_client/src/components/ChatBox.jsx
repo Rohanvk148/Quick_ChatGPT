@@ -24,7 +24,7 @@ const ChatBox = () => {
   }, [selectedchats])
 
   useEffect(() => {
-    if (containerRef.current) {
+    if (containerRef.current) {         //used ref to always show latest message and not older messages
       containerRef.current.scrollTo({
         top: containerRef.current.scrollHeight,
         behavior: 'smooth',
@@ -46,6 +46,7 @@ const ChatBox = () => {
         }
         {messages.map((message, index) => <Message key={index} message={message} />)}
 
+        {/* loading animation */}
         {
           loading && <div className='loader flex items-center gap-1.5'>
             {

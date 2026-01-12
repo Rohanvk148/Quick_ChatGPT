@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react'
 import { assets } from '../assets/assets'
 import moment from 'moment'
-import Markdown from 'react-markdown'
-import Prism from 'prismjs'
+import Markdown from 'react-markdown' //for formatting text use this 
+import Prism from 'prismjs' //for formatting code file use this 
 
 const Message = ({message}) => {
   useEffect(() => {
-    Prism.highlightAll();
+    Prism.highlightAll();   //highlighting code
   }, [message.content])
-  
   
   return (
     <div>
