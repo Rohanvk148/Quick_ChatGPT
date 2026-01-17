@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const Login = () => {
-  const [state, setState] = useState("login");
+    const [state, setState] = useState("login");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -10,8 +10,8 @@ const Login = () => {
         e.preventDefault();
     }
 
-  return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 m-auto items-start p-8 py-12 w-80 sm:w-[352px] text-gray-500 rounded-lg shadow-xl border border-gray-200 bg-white">
+    return (
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 m-auto items-start p-8 py-12 w-80 sm:w-[352px] text-gray-500 rounded-lg shadow-xl border border-gray-200 bg-white">
             <p className="text-2xl font-medium m-auto">
                 <span className="text-purple-700">User</span> {state === "login" ? "Login" : "Sign Up"}
             </p>
@@ -42,7 +42,7 @@ const Login = () => {
                 {state === "register" ? "Create Account" : "Login"}
             </button>
         </form>
-  )
+    )
 }
 
 export default Login
