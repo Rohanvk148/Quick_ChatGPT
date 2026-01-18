@@ -8,7 +8,7 @@ const ChatBox = () => {
   const containerRef = useRef(null)
   const [messages, setMessages] = useState([])
   const [loading, setLoading] = useState(false)
-  const [promt, setPromt] = useState('')
+  const [prompt, setprompt] = useState('')
   const [mode, setMode] = useState('text')
   const [isPublished, setIsPublished] = useState(false)
 
@@ -75,7 +75,7 @@ const ChatBox = () => {
             <option className='dark:bg-purple-900' value="text">Text</option>
             <option className='dark:bg-purple-900' value="image">Image</option>
           </select>
-          <input onChange={(e) => setPromt(e.target.value)} value={promt} type="text" placeholder='Type your message here...' className='flex-1 w-full text-sm outline-none required'/>
+          <input onChange={(e) => setprompt(e.target.value)} value={prompt} type="text" placeholder='Type your message here...' className='flex-1 w-full text-sm outline-none required'/>
             <button disabled = {loading}>
               <img src={loading ? assets.stop_icon : assets.send_icon} className='w-8 cursor-pointer' alt="" />
             </button>
