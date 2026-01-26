@@ -1,6 +1,7 @@
 import { User } from "../models/user.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs"
+import { Chat } from "../models/chat.js";
 
 // JWT verification
 const generateToken = (id) => {
@@ -53,5 +54,30 @@ export const getUserDetails = async (req, res) => {
         return res.json({success: true, data: {user: user}});
     } catch (error) {
         return res.json({success: false, message: "Fetching user details failed!", error: error.message});
+    }
+}
+
+// API to get published images
+export const getPublishedImages = async (req, res) => {
+    try {
+        const publishedImageMessges = await Chat.aggregate([
+            {$unwind: "$messages"},
+            {
+                $match: {
+                    "messages.isImage": true,
+                    "messages.isPublished": true
+                }
+            },
+            {
+                $project: {
+                    _id: 0,
+                    imageUrl: "$messages.content",
+                    userName: "$userName"
+                }
+            }
+        ])
+        res.json({success:true, images: publishedImageMessges.reverse()})
+    } catch (error) {
+        res.json({success:false, message: "Fetching published images failed!", error: error.message})
     }
 }
