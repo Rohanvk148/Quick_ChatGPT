@@ -1,4 +1,4 @@
-import Transaction from "../models/transaction";
+import Transaction from "../models/transaction.js";
 import Stripe from "stripe";
 
 const plans = [
@@ -62,9 +62,8 @@ export const purchasePlan = async (req, res) => {
                     unit_amount: plan.price * 100,
                     product_data: {
                         name: plan.name,
-
                     }
-                }
+                },
                 quantity: 1,
                 },  
             ],

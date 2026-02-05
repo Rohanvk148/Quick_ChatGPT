@@ -1,6 +1,6 @@
 import express, { Router } from 'express'
-import { getPlans, purchasePlan } from '../controllers/creditController'
-import { protect } from '../middlewares/auth'
+import { getPlans, purchasePlan } from '../controllers/creditController.js'
+import { protect } from '../middlewares/auth.js'
 
 const creditRouter = Router()
 
